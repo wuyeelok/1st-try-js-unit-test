@@ -1,3 +1,13 @@
+// Test Case 3: Quatity
+if(orderTotal({
+    items: [
+        createItem('Dragon candy', 2, 3)
+    ]
+}) !== 6) {
+    throw new Error('Check fail: Quantity')
+}
+
+
 //  Test Case 1
 if(orderTotal({
     items: [
