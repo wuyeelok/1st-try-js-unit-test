@@ -1,7 +1,7 @@
 if(orderTotal({
     items: [
-        {name: 'Dragon food', price: 8},
-        {name: 'Dragon cage (small)', price: 800}
+        createItem('Dragon food', 8),
+        createItem('Dragon cage (small)', 800)
     ]
 }) !== 808) {
     throw new Error('Check fail: Happy path')
