@@ -1,17 +1,19 @@
-const createItem = (name, price) => {
+const createItem = (name, price, quantity) => {
     const privateAttribute = {
         name,
-        price
+        price,
+        quantity
     }
 
     const publicMethod = {
         getName: () => privateAttribute.name,
-        getPrice: () => privateAttribute.price
+        getPrice: () => privateAttribute.price,
+        getQuantity: () => privateAttribute.quantity
     }
 
     return publicMethod
 }
 
 const orderTotal = order => {
-    return order.items.reduce((prev, cur) => cur.getPrice() + prev, 0)
+    return order.items.reduce((prev, cur) => cur.getPrice() * cur.getQuantity() + prev, 0)
 }
