@@ -1,4 +1,4 @@
-const createItem = (name, price, quantity) => {
+const createItem = (name, price, quantity=1) => {
     const privateAttribute = {
         name,
         price,
