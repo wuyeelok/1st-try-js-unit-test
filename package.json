@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/wuyeelok/1st-try-js-unit-test#readme",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "colors": "^1.3.1"
   }
 }
