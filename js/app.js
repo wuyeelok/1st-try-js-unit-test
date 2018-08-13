@@ -52,10 +52,19 @@ const getProfile = usersNameArray => {
 }
 
 // const users = ['chalkers', 'davemcfarland', 'alenaholligan'];
-const users = process.argv.slice(2)
+// const users = process.argv.slice(2)
 
-getProfile(users)
+// getProfile(users)
 
+let unsecurePlainTextPassword = "password"
+
+let bcrypt = require('bcrypt')
+bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(unsecurePlainTextPassword, salt, function(err, hash) {
+        // Store hash in your password DB.
+        console.log(hash)
+    });
+});
 
 
 
