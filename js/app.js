@@ -20,8 +20,20 @@ const https = require('https')
 //  Connect to the API URL (https://teamtreehouse.com/username.json)
 const request = https.get(`https://teamtreehouse.com/${username}.json`, response => {
 
-    console.log(response.statusCode)
+    //  console.log(response.statusCode)
+
+
     //  Read the data
+    let body = "";
+    response.on('data', data => {
+        body += console.log('data:', data.toString())
+    })
+
+    response.on('end', () => {
+        //  Parse the data
+        console.log(body)
+        console.log(`type of: ${typeof body}`)
+    })
     //  Parse the data
     //  Print the data
 })
