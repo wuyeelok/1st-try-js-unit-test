@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wuyeelok/1st-try-js-unit-test/issues"
   },
-  "homepage": "https://github.com/wuyeelok/1st-try-js-unit-test#readme"
+  "homepage": "https://github.com/wuyeelok/1st-try-js-unit-test#readme",
+  "dependencies": {
+    "colors": "^1.3.1"
+  }
 }
