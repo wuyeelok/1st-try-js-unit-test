@@ -1,0 +1,19 @@
+{
+  "name": "hash_generator",
+  "version": "0.0.1",
+  "description": "A password hash generator",
+  "main": "js/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuyeelok/1st-try-js-unit-test.git"
+  },
+  "author": "Kenneth WU",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuyeelok/1st-try-js-unit-test/issues"
+  },
+  "homepage": "https://github.com/wuyeelok/1st-try-js-unit-test#readme"
+}
