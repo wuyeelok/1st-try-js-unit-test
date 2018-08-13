@@ -5,42 +5,59 @@
 // Problem: We need a simple way to look at user's badge count and JS points
 
 // Solution: Use Node.js to connect to Treehouse's API to get profile information to print out
-const username = 'chalkers'
+// const username = 'chalkers'
 
+const getProfile = usersNameArray => {
 
-const printMessage = (username, badgeCount, point) => {
-    const message = `${username} has ${badgeCount} total bage(s) and ${point} points in JavaScript`
-    console.log(message)
-    return message
-}
+    const printMessage = (username, badgeCount, point) => {
+        const message = `${username} has ${badgeCount} total bage(s) and ${point} points in JavaScript`
+        console.log(message)
+        return message
+    }
+    
+    const connectTreeHouseUserAPI = url => {
+        const https = require('https')
+    
+        //  Connect to the API URL (https://teamtreehouse.com/username.json)
+        const request = https.get(url, response => {
+    
+            //  console.log(response.statusCode)
+            //  Read the data
+            let body = "";
+            response.on('data', data => {
+                body += data.toString()
+            });
+    
+            response.on('end', () => {
+                //  Parse the data
+                //  console.log(body)
+                //  console.log(`type of: ${typeof body}`)
+    
+                const profile = JSON.parse(body);
+    
+                // Print the data
+                printMessage(profile.profile_name, profile.badges.length, profile.points.JavaScript);
+                
+            })        
+            
+        })
+    }
 
+    usersNameArray.forEach(user => {
+        const url = `https://teamtreehouse.com/${user}.json`
 
-const connectTreeHouseUserAPI = url => {
-    const https = require('https')
-
-    //  Connect to the API URL (https://teamtreehouse.com/username.json)
-    const request = https.get(url, response => {
-
-        //  console.log(response.statusCode)
-        //  Read the data
-        let body = "";
-        response.on('data', data => {
-            body += data.toString()
-        });
-
-        response.on('end', () => {
-            //  Parse the data
-            //  console.log(body)
-            //  console.log(`type of: ${typeof body}`)
-
-            const profile = JSON.parse(body);
-
-            // Print the data
-            printMessage(profile.profile_name, profile.badges.length, profile.points.JavaScript);
-            return profile
-        })        
-        
+        connectTreeHouseUserAPI(url)
     })
+
 }
 
-connectTreeHouseUserAPI(`https://teamtreehouse.com/${username}.json`)
+// const users = ['chalkers', 'davemcfarland', 'alenaholligan'];
+const users = process.argv.slice(2)
+
+getProfile(users)
+
+
+
+
+
+
