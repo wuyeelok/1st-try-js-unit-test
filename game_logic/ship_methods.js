@@ -25,3 +25,10 @@ const checkForShip = (player, coordinates) => {
 }
 
 module.exports.checkForShip = checkForShip; 
+
+
+const damageShip = (ship, coordinates) => {
+    ship.damage.push(coordinates)
+} 
+
+module.exports.damageShip = damageShip;
