@@ -3,12 +3,9 @@ const expect = require('chai').expect;
 // expect(true).to.be.true;
 
 const titleCase = str => {
-    const wordsArray = str.split(' ');
-    const titleCaseArray = wordsArray.map(word => {
-        return word[0].toUpperCase() + word.substring(1);
-    });
-    const titleCaseString = titleCaseArray.join(' ');
-    return titleCaseString;
+    return str.split(' ').reduce((prev, curr) => {
+        return (prev + " " + curr[0].toUpperCase() + curr.substring(1)).trim()
+    }, "");
 }
 
 expect(titleCase('the great mouse detective')).to.be.a('string');
