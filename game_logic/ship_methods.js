@@ -3,10 +3,9 @@ const checkForShip = (player, coordinates) => {
     // let shipPresent;
     //  let ship;
 
-    const shipPresent = player.ships.map(ele => {
-        //  console.log(`ele.locations is: ${ele.locations}`)
-
-        const shipPresent = ele.locations.filter(actualCoordinate => {
+    const shipPresent = player.ships.filter(ship => {
+        
+        const shipPresent = ship.locations.filter(actualCoordinate => {
             //  console.log(`actualCoordinate is: ${actualCoordinate}`)
             return (actualCoordinate[0] === coordinates[0]) && (actualCoordinate[1] === coordinates[1]);           
         })[0];
@@ -16,11 +15,14 @@ const checkForShip = (player, coordinates) => {
         } else {
             return true
         }
-    }).reduce((prev, curr) => {
-        return prev || curr
-    }, false)
+    })
 
-    return shipPresent    
+    if(shipPresent !== undefined && shipPresent.length > 0) {
+        return shipPresent[0]
+    } else {
+        return false;
+    }
+       
     
 }
 
@@ -32,3 +34,13 @@ const damageShip = (ship, coordinates) => {
 } 
 
 module.exports.damageShip = damageShip;
+
+const fire = (player, coordinates) => {
+    const ship = checkForShip(player, coordinates);
+    
+    if(ship) {
+        damageShip(ship, coordinates)
+    }
+}
+
+module.exports.fire = fire;
