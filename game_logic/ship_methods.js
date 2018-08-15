@@ -14,7 +14,9 @@ const checkForShip = (player, coordinates) => {
         })[0];
         //  console.log(`shipPresent: ${shipPresent}`);
         if(!shipPresent) {
-            return false;
+            return false
+        } else {
+            return true
         }
     })
 
