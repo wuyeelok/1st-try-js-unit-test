@@ -63,13 +63,21 @@ describe('checkForShip', () => {
 describe('damageShip', () => {
     const damageShip = require('../game_logic/ship_methods').damageShip
 
-    it('should register damage on a given ship at a given location', () => {
-        const ship = {
+    let ship;
+    beforeEach(() => {
+        ship = {
             locations: [
                 [0, 0]
             ],
             damage: []
         }
+    })
+
+    after(() => {
+        console.log('All damage ship test suit complete')
+    })
+
+    it('should register damage on a given ship at a given location', () => {       
 
         damageShip(ship, [0, 0])
 
@@ -94,6 +102,14 @@ describe('fire', () => {
                 }
             ]
         }
+    })
+
+    after(() => {
+        console.log('All fire test suit complete')
+    })
+
+    afterEach(() => {
+        console.log('one fire unit test complete')
     })
 
     it('should have no damage to player ship if there is no ship in target location', () => {
