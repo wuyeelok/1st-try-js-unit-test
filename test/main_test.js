@@ -6,4 +6,8 @@ describe('Mocha', () => {
     it('should run our tests using npm', () => {
         expect(true).to.be.ok
     })
+
+    it('dobule check it should run our tests using npm', () => {
+        expect(false).to.be.false
+    })
 })
