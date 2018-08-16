@@ -45,4 +45,25 @@ describe('GAME INSTANCE FUNCTIONS', function () {
         expect(actual).to.be.false
       })
   })
+
+  function saveGame(callback) {
+      setTimeout(()=> {
+          callback();
+      }, 1000)
+  }
+
+  describe('saveGame', () => {
+      it('should update save status', done => {
+          let status = 'game not saved...'
+
+          saveGame(() => {
+              status = 'game saved!'
+              expect(status).to.equal('game saved!')
+              done()
+          })
+
+          
+      })
+  })
+
 });
