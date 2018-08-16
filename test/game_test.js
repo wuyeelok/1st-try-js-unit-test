@@ -18,4 +18,31 @@ describe('GAME INSTANCE FUNCTIONS', function () {
       expect(actual).to.be.false;
     });
   });
+
+  describe('takeTurn', ()=> {
+      const takeTurn = require('../game_logic/game_instance').takeTurn;
+      let guess;
+      let player;
+
+      beforeEach(() => {
+        guess = () => {
+            return [0, 0]
+        }
+        player = {
+            ships:[
+                {
+                    locations:[
+                        [0,0]
+                    ],
+                    damage: []
+                }
+            ]
+        }
+      })
+
+      it('should return false when the game ends', () => {
+        const actual =takeTurn(player, guess)
+        expect(actual).to.be.false
+      })
+  })
 });
