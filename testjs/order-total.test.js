@@ -42,9 +42,10 @@ describe('orderTotal', () => {
     })
 
     describe('fetch related', () => {
-        it('calls vatapi.com if country code specifed', () => {
+        it('calls vatapi.com correctly if country code specifed', () => {
             let isFakeFetchCalled = false
             const fakeFetch = url => {
+                expect(url).toBe('https://vatapi.com/v1/country-code-check?code=DE')
                 isFakeFetchCalled =true
             }
 
