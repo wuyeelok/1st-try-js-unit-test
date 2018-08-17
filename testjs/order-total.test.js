@@ -10,26 +10,18 @@ describe('orderTotal', () => {
                 ]
             })).toBe(6)
         })
+
+        it('No Quantity Specified', () => {
+            expect(orderTotal({
+                items: [
+                    createItem('Dragon candy', 3)
+                ]
+            })).toBe(3)
+        })
     })
 })
 
-// Test Case 3: Quatity
-if(orderTotal({
-    items: [
-        createItem('Dragon candy', 2, 3)
-    ]
-}) !== 6) {
-    throw new Error('Check fail: // Test Case 3: Quatity')
-}
 
-// Test Case 4: No Quantity Specified
-if(orderTotal({
-    items: [
-        createItem('Dragon candy', 3)
-    ]
-}) !== 3) {
-    throw new Error('Check fail: Test Case 4: No Quantity Specified')
-}
 
 //  Test Case 1
 if(orderTotal({
