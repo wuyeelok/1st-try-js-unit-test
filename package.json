@@ -19,5 +19,8 @@
   "homepage": "https://github.com/wuyeelok/1st-try-js-unit-test#readme",
   "devDependencies": {
     "jest": "^23.5.0"
+  },
+  "dependencies": {
+    "node-fetch": "^2.2.0"
   }
 }
