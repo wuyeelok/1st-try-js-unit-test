@@ -3,18 +3,18 @@ const orderTotal = require('../js/order-total').orderTotal
 
 
 describe('orderTotal', () => {
-    const emptyFunction = () => {}
+    
     describe('Quantity Related', () => {
 
         it('Quantity', () => {
-            orderTotal(emptyFunction, {
+            orderTotal(null, {
                 items: [
                     createItem('Dragon candy', 2, 3)
                 ]
             }).then(result => expect(result).toBe(6))
         })
         it('No Quantity Specified', () => {
-            orderTotal(emptyFunction,{
+            orderTotal(null,{
                 items: [
                     createItem('Dragon candy', 3)
                 ]
@@ -24,7 +24,7 @@ describe('orderTotal', () => {
 
     describe('Happy Path Related', () => {
         it(' Happy path Test Case 1', () => {
-            orderTotal(emptyFunction,{
+            orderTotal(null,{
                 items: [
                     createItem('Dragon food', 8, 1),
                     createItem('Dragon cage (small)', 800, 1)
@@ -32,7 +32,7 @@ describe('orderTotal', () => {
             }).then(result => expect(result).toBe(808))
         })
         it(' Happy path Test Case 2', () => {
-            orderTotal(emptyFunction,{
+            orderTotal(null,{
                 items: [
                     createItem('Dragon collar', 20, 1),
                     createItem('Dragon chew toy', 40, 1)
@@ -69,6 +69,6 @@ describe('orderTotal', () => {
             })
         })
 
-        xit('if a country code specifed',() => {})
+        
     })
 })
