@@ -15,7 +15,7 @@ const createItem = (name, price, quantity=1) => {
 }
 
 const orderTotal = (fetch, order) => {
-    fetch('https://vatapi.com/v1/country-code-check?code=DE')
+    fetch('https://vatapi.com/v1/country-code-check?code=' + order.country)
     return Promise.resolve(
      order.items.reduce((prev, cur) => cur.getPrice() * cur.getQuantity() + prev, 0)
     )
