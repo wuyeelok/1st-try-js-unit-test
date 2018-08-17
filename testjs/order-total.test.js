@@ -3,38 +3,39 @@ const orderTotal = require('../js/order-total').orderTotal
 
 describe('orderTotal', () => {
     describe('Quantity Related', () => {
+
         it('Quantity', () => {
-            expect(orderTotal({
+            orderTotal({
                 items: [
                     createItem('Dragon candy', 2, 3)
                 ]
-            })).toBe(6)
+            }).then(result => expect(result).toBe(6))
         })
         it('No Quantity Specified', () => {
-            expect(orderTotal({
+            orderTotal({
                 items: [
                     createItem('Dragon candy', 3)
                 ]
-            })).toBe(3)
+            }).then(result => expect(result).toBe(3))
         })
     })
 
     describe('Happy Path Related', () => {
         it(' Happy path Test Case 1', () => {
-            expect(orderTotal({
+            orderTotal({
                 items: [
                     createItem('Dragon food', 8, 1),
                     createItem('Dragon cage (small)', 800, 1)
                 ]
-            })).toBe(808)
+            }).then(result => expect(result).toBe(808))
         })
         it(' Happy path Test Case 2', () => {
-            expect(orderTotal({
+            orderTotal({
                 items: [
                     createItem('Dragon collar', 20, 1),
                     createItem('Dragon chew toy', 40, 1)
                 ]
-            })).toBe(60)
+            }).then(result => expect(result).toBe(60))
         })
     })
 })

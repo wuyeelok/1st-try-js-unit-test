@@ -1,3 +1,7 @@
+// vat api
+// using company email
+// using xxxlok as pw
+
 const fetch = require('node-fetch')
 const result = fetch('https://vatapi.com/v1/country-code-check?code=DE', {
     headers: {
