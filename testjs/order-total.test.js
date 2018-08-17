@@ -10,7 +10,6 @@ describe('orderTotal', () => {
                 ]
             })).toBe(6)
         })
-
         it('No Quantity Specified', () => {
             expect(orderTotal({
                 items: [
@@ -19,26 +18,23 @@ describe('orderTotal', () => {
             })).toBe(3)
         })
     })
+
+    describe('Happy Path Related', () => {
+        it(' Happy path Test Case 1', () => {
+            expect(orderTotal({
+                items: [
+                    createItem('Dragon food', 8, 1),
+                    createItem('Dragon cage (small)', 800, 1)
+                ]
+            })).toBe(808)
+        })
+        it(' Happy path Test Case 2', () => {
+            expect(orderTotal({
+                items: [
+                    createItem('Dragon collar', 20, 1),
+                    createItem('Dragon chew toy', 40, 1)
+                ]
+            })).toBe(60)
+        })
+    })
 })
-
-
-
-//  Test Case 1
-if(orderTotal({
-    items: [
-        createItem('Dragon food', 8, 1),
-        createItem('Dragon cage (small)', 800, 1)
-    ]
-}) !== 808) {
-    throw new Error('Check fail: Happy path Test Case 1')
-}
-
-//  Test Case 2
-if(orderTotal({
-    items: [
-        createItem('Dragon collar', 20, 1),
-        createItem('Dragon chew toy', 40, 1)
-    ]
-}) !== 60) {
-    throw new Error('Check fail: Happy path Test Case 2')
-}
