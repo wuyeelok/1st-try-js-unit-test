@@ -1,3 +1,18 @@
+const createItem = require('../js/order-total').createItem
+const orderTotal = require('../js/order-total').orderTotal
+
+describe('orderTotal', () => {
+    describe('Quantity Related', () => {
+        it('Quantity', () => {
+            expect(orderTotal({
+                items: [
+                    createItem('Dragon candy', 2, 3)
+                ]
+            })).toBe(6)
+        })
+    })
+})
+
 // Test Case 3: Quatity
 if(orderTotal({
     items: [
