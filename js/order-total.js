@@ -14,7 +14,8 @@ const createItem = (name, price, quantity=1) => {
     return publicMethod
 }
 
-const orderTotal = order => {
+const orderTotal = (fetch, order) => {
+    fetch()
     return Promise.resolve(
      order.items.reduce((prev, cur) => cur.getPrice() * cur.getQuantity() + prev, 0)
     )
