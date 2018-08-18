@@ -20,5 +20,8 @@
   "homepage": "https://github.com/wuyeelok/1st-try-js-unit-test#readme",
   "devDependencies": {
     "jest": "^23.5.0"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
   }
 }
