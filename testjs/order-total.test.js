@@ -43,12 +43,8 @@ describe('orderTotal', () => {
 
     describe('fetch related', () => {
         it('calls vatapi.com correctly if country code specifed', () => {
-            let isFakeFetchCalled = false
-            const fakeFetch = (url, opts) => {
-                //expect(opts.headers.apikey).toBe('key123')
-                expect(url).toBe('https://vatapi.com/v1/country-code-check?code=DE')
-                isFakeFetchCalled =true
-                return Promise.resolve({
+            const fakeFetch = jest.fn().mockReturnValue(
+                Promise.resolve({
                     json: () => Promise.resolve({
                         rates: {
                             standard: {
@@ -56,8 +52,7 @@ describe('orderTotal', () => {
                             }
                         }
                     })
-                })
-            }
+                }))
 
             return orderTotal(fakeFetch, 'key123', {
                 country: 'DE',
@@ -66,7 +61,10 @@ describe('orderTotal', () => {
                 ]
             }  ).then(result => {
                 expect(result).toBe(20*2*1.19)
-                expect(isFakeFetchCalled).toBe(true)
+                expect(fakeFetch).toBeCalledWith(
+                    'https://vatapi.com/v1/country-code-check?code=DE',
+                    {"headers": {"apikey": "key123"}}
+                )
             })
         })
     })
