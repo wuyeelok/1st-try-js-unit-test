@@ -14,9 +14,13 @@ const createItem = (name, price, quantity=1) => {
     return publicMethod
 }
 
-const orderTotal = (fetch, order) => {
+const orderTotal = (fetch, apikey, order) => {
     if(order.country) {
-        return fetch('https://vatapi.com/v1/country-code-check?code=' + order.country)
+        return fetch('https://vatapi.com/v1/country-code-check?code=' + order.country, {
+            headers: {
+                apikey: apikey
+            }
+        })
         .then(response => response.json())
         .then(data => data.rates.standard.value)
         .then(vat => order.items.reduce((prev, cur) => 
