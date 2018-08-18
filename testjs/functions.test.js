@@ -9,5 +9,7 @@ describe('functions object method:', () => {
         expect(functions.add(2,2)).not.toBe(5)
     })
     
-    
+    test('Should be null', () => {
+        expect(functions.isNull()).toBeNull()
+    })
 })
