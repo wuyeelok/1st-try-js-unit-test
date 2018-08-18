@@ -12,4 +12,32 @@ describe('functions object method:', () => {
     test('Should be null', () => {
         expect(functions.isNull()).toBeNull()
     })
+
+    test('Should be falsy', () => {
+        expect(functions.checkValue(null)).toBeFalsy()
+    })
+    
+    test('User should be Brad Traversy object', () => {
+        expect(functions.createUser()).toStrictEqual({
+            firstName: "Brad", 
+            lastName: "Travsery"
+        })    
+    })
+
+    test('Should be under 1600', () => {
+        const load1 = 800;
+        const load2 = 800
+        expect(functions.add(load1, load2)).toBeLessThanOrEqual(1600)
+    })
+
+    // Regex
+    test('there is no I in team', () => {
+        expect('team').not.toMatch(/I/)
+    })
+
+    // Arrays
+    test('Admin should in usernames', () => {
+        usernames = ['john', 'karen', 'admin']
+        expect(usernames).toContain('admin')
+    })
 })
